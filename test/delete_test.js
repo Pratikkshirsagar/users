@@ -21,7 +21,7 @@ describe('Deleting a user', () => {
 
   it('class method remove', (done) => {
     // Remove a bunch of records  with some given criteria
-    User.remove({ name: 'Joe' })
+    User.deleteMany({ name: 'Joe' })
       .then(() => User.findOne({ name: 'Joe' }))
       .then((user) => {
         assert(user === null);
@@ -30,7 +30,7 @@ describe('Deleting a user', () => {
   });
 
   it('class method findOneAndRemove', (done) => {
-    User.findOneAndRemove({ name: 'Joe' })
+    User.findOneAndDelete({ name: 'Joe' })
       .then(() => User.findOne({ name: 'Joe' }))
       .then((user) => {
         assert(user === null);
@@ -39,7 +39,7 @@ describe('Deleting a user', () => {
   });
 
   it('class method findByIdAndRemove', (done) => {
-    User.findByIdAndRemove(joe._id)
+    User.findByIdAndDelete(joe._id)
       .then(() => User.findOne({ name: 'Joe' }))
       .then((user) => {
         assert(user === null);
