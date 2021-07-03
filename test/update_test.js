@@ -29,7 +29,7 @@ describe('Update record', () => {
   });
 
   it('A model class can update', (done) => {
-    assertName(User.update({ name: 'Joe' }, { name: 'Alex' }), done);
+    assertName(User.updateMany({ name: 'Joe' }, { name: 'Alex' }), done);
   });
 
   it('A model class can update one record', (done) => {
