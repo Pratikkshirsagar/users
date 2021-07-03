@@ -9,9 +9,16 @@ describe('Reading users out of database ', () => {
     joe.save().then(() => done());
   });
 
-  it('findes all users with a name of joe', () => {
+  it('findes all users with a name of joe', (done) => {
     User.find({ name: 'joe' }).then((users) => {
       assert(users[0]._id.toString() === joe._id.toString());
+      done();
+    });
+  });
+
+  it('finde a user with a particular id', (done) => {
+    User.findOne({ _id: joe._id }).then((user) => {
+      assert(user.name === 'joe');
       done();
     });
   });
